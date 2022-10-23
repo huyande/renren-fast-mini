@@ -27,6 +27,7 @@ public class WxLoginInterceptor extends HandlerInterceptorAdapter {
         //判断请求头中是否有openid这个参数
         String openid = request.getHeader("_openid");
         if(openid==null){
+//            response.setCharacterEncoding("UTF-8");
             throw new RRException("微信小程序请求头缺少openid", HttpStatus.UNAUTHORIZED.value());
         }
         return true;
