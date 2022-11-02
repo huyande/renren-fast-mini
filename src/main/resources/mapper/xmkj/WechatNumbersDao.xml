@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.xmkj.dao.WechatNumbersDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.xmkj.entity.WechatNumbersEntity" id="wechatNumbersMap">
+        <result property="id" column="id"/>
+        <result property="phone" column="phone"/>
+        <result property="gwNumber" column="gw_number"/>
+        <result property="gwNickname" column="gw_nickname"/>
+        <result property="gwQrCode" column="gw_qr_code"/>
+        <result property="qwNumber" column="qw_number"/>
+        <result property="qwNickname" column="qw_nickname"/>
+        <result property="qwQrCode" column="qw_qr_code"/>
+        <result property="createdAt" column="createdAt"/>
+        <result property="updatedAt" column="updatedAt"/>
+    </resultMap>
+
+
+</mapper>

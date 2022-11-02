@@ -45,15 +45,15 @@ wx:
 
 
 ##多数据源的配置
-#dynamic:
-#  datasource:
+dynamic:
+  datasource:
 #    slave1:
 #      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 #      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
 #      username: sa
 #      password: 123456
-#    slave2:
-#      driver-class-name: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/renren_security
-#      username: renren
-#      password: 123456
+    slave1:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://47.105.110.250:8092/xgj
+      username: xgj
+      password: xgjpsql
