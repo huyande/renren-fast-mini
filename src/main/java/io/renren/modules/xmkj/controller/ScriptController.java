@@ -91,20 +91,6 @@ public class ScriptController {
         return R.ok();
     }
 
-    @RequestMapping(value="/qwb", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public R qwbCallback(@RequestBody String body){
-//        System.out.println(body);
-        String aesKey = "x6J0XGmnM4Pd3KCShjufQYqNRUzDErZ1";
-        String iv = aesKey.substring(0,16);
-        try {
-//            String sssss = QiWeiBaoUtils.encrypt("sfsafsafasf", aesKey, iv);
-            String decrypt = QiWeiBaoUtils.decrypt(body, aesKey, iv);
-            System.out.println(decrypt);
-//            System.out.println(sssss);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return R.ok();
-    }
+
 
 }

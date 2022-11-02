@@ -3,9 +3,9 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://localhost:3306/renren_fast?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: renren
-            password: 123456
+            url: jdbc:mysql://rm-m5eg18vev09z0r5f9eo.mysql.rds.aliyuncs.com:3306/wechat?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: xmkj_wechat
+            password: xmkj@2022
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -33,17 +33,25 @@ spring:
                     config:
                         multi-statement-allow: true
 
+wx:
+    miniapp:
+        configs:
+            - appid: wx39c968004e613ebb
+              secret: e2d20c567153ea8ffae50296ce3b05ed
+              token: #微信小程序消息服务器配置的token
+              aesKey: #微信小程序消息服务器配置的EncodingAESKey
+              msgDataFormat: JSON
 
 ##多数据源的配置
-#dynamic:
-#  datasource:
-#    slave1:
-#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
-#      username: sa
-#      password: 123456
-#    slave2:
-#      driver-class-name: org.postgresql.Driver
-#      url: jdbc:postgresql://localhost:5432/renren_security
-#      username: renren
-#      password: 123456
+dynamic:
+    datasource:
+        #    slave1:
+        #      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        #      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
+        #      username: sa
+        #      password: 123456
+        slave1:
+            driver-class-name: org.postgresql.Driver
+            url: jdbc:postgresql://47.105.110.250:8092/xgj
+            username: xgj
+            password: xgjpsql
