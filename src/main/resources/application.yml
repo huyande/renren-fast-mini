@@ -74,3 +74,6 @@ renren:
     # token有效时长，7天，单位秒
     expire: 604800
     header: token
+
+file:
+  downpath: /Users/mac/Documents/project/bysj/20220125/renren-fast/downfile/
