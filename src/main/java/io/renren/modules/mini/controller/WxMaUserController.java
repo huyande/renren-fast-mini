@@ -4,6 +4,7 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
 import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import io.renren.common.utils.R;
 import io.renren.modules.mini.annotation.WxLogin;
 import io.renren.modules.mini.config.WxMaConfiguration;
@@ -52,11 +53,15 @@ public class WxMaUserController {
             //TODO 可以增加自己的逻辑，关联业务相关数据
             //查询数据库是否有此用户信息
             WxUserEntity wxUser = wxUserService.findWxUserByOpenid(session.getOpenid());
+            if(wxUser==null){
+                WxUserEntity newWxUser = new WxUserEntity();
+                newWxUser.setOpenid(session.getOpenid());
+                wxUserService.save(newWxUser);
+            }
             Map<String,Object> map = new HashMap<>();
-            map.put("is_has",wxUser==null?false:true);
+//            map.put("is_has",wxUser==null?false:true);
             map.put("session",session);
             map.put("userInfo",wxUser);
-
             return R.ok(map);
         } catch (WxErrorException e) {
             this.logger.error(e.getMessage(), e);
@@ -107,12 +112,13 @@ public class WxMaUserController {
     }
 
     @PostMapping("saveUser")
-    public R saveUser(RegisterForm form){
+    public R saveUser(@RequestBody RegisterForm form){
         WxUserEntity wxUser = new WxUserEntity();
         wxUser.setOpenid(form.getOpenid());
         wxUser.setAvatarUrl(form.getAvatarUrl());
         wxUser.setNickName(form.getNickName());
-        wxUserService.save(wxUser);
+//        wxUserService.save(wxUser);
+        wxUserService.saveOrUpdate(wxUser,new UpdateWrapper<WxUserEntity>().eq("openid",form.getOpenid()));
         return R.ok();
     }
 
