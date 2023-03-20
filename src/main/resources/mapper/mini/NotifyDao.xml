@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.mini.dao.NotifyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.mini.entity.NotifyEntity" id="notifyMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="cId" column="c_id"/>
+        <result property="openid" column="openid"/>
+        <result property="imgUrls" column="img_urls"/>
+        <result property="visibility" column="visibility"/>
+        <result property="cutOffTime" column="cut_off_time"/>
+        <result property="createAt" column="create_at"/>
+        <result property="updateAt" column="update_at"/>
+    </resultMap>
+
+
+</mapper>
